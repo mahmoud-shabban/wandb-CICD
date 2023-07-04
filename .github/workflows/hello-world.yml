@@ -31,7 +31,7 @@ jobs:
     steps:
       - run: |
           import os
-          print(len(os.getnev('MY_ENV')))
+          print(len(os.getenv('MY_ENV')))
         shell: python
         env:
           MY_ENV: "${{ secrets.HELLO_SECRET }}"
