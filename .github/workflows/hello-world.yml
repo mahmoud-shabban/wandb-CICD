@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{ secrets.Hello_Secret }}"
+          echo "${{ secrets.HELLO_SECRET }}"
       
