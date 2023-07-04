@@ -23,4 +23,6 @@ jobs:
     steps:
       - run: |
           echo "${{ secrets.HELLO_SECRET }}"
-      
+        env:
+          MY_ENV: "${{ secrets.HELLO_SECRET }}"
+      - run: env | grep -i 'hello_secret'
