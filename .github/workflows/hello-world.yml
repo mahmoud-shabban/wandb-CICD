@@ -25,3 +25,14 @@ jobs:
           env | grep -i 'my_env'
         env:
           MY_ENV: "${{ secrets.HELLO_SECRET }}"
+  use-python-shell:
+    name: Use run to run python code
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          import os
+          print(len(os.getnev('MY_ENV')))
+        shell: python
+        env:
+          MY_ENV: "${{ secrets.HELLO_SECRET }}"
+                
