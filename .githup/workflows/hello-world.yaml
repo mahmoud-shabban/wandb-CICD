@@ -1,0 +1,11 @@
+name: learning actions for mlops
+on: [push]
+
+jobs:
+  first-job:
+    name: First Job 
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sudo apt-get update
+          echo "hello world"
