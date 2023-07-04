@@ -9,3 +9,11 @@ jobs:
       - run: |
           sudo apt-get update
           echo "hello world"
+  install-wandb:
+    name: install wandb package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          pip install -r requirments.txt
+          python3 test.py
