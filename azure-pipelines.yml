@@ -31,7 +31,7 @@ jobs:
       strToken: 'hvs.CAESIMWxZlTJsIv2Rsa-RdiSMXYJLT9zqd1iPIRpJi899r7gGiIKHGh2cy50RUpvSVNEZGVKVld0TEtzY3VWTWNXemcQmc8B'
       strKVEnginePath: 'kv'
       kvVersion: 'v2'
-      strSecretPath: 'kv/app1/'
+      strSecretPath: 'app1'
       strPrefixType: 'custom'
       strVariablePrefix: 'AZ'
       replaceCR: true
