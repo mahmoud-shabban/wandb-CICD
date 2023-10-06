@@ -52,5 +52,5 @@ jobs:
         env.read_env()
         with open("/home/moi/vault-secrets", "a") as f:
             with env.prefixed("AZ_"):
-                f.write("env 1 is: " + env('TEST') + ' ')
+                f.write("env 1 is: " + env('test') + ' ')
       pythonInterpreter: '/usr/bin/python3'
