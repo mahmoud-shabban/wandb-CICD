@@ -1,4 +1,4 @@
-# Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -10,15 +10,6 @@ pool:
   name: my-org-agent-pool
   
 jobs:
-- job: first_job
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
-
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
 - job: seconde_job
   steps:
   - task: Bash@3
@@ -28,3 +19,41 @@ jobs:
         # Write your commands here
         touch /home/moi/pipeline-created-file
         echo 'Hello world' > /home/moi/pipeline-created-file
+- job: read_secrets_from_vault
+  steps:
+  - task: VaultReadKV@4
+    inputs:
+      strUrl: $(VAULT_ADDRESS)
+      ignoreCertificateChecks: true
+      useProxy: 'none'
+      strNamespaces: '/'
+      strAuthType: 'userpass'
+      strUsername: $(VAULT_UN)
+      strPassword: $(VAULT_PASS)
+      strKVEnginePath: 'kv'
+      kvVersion: 'v2'
+      strSecretPath: 'kv/app1/'
+      strPrefixType: 'custom'
+      strVariablePrefix: 'AZ'
+      replaceCR: true
+      strCRPrefix: '_'
+    env:
+      VAULT_UN: $(VAULT_UN)
+      VAULT_PASS: $(VAULT_PASS)
+      VAULT_ADDRESS: $(VAULT_ADDRESS) 
+- job: write_vault_secrets
+  steps:
+  - script: |
+      touch /home/moi/vault-secrets
+  - task: PythonScript@0
+    inputs:
+      scriptSource: 'inline'
+      script: |
+        from environs import Env
+        env = Env()
+        env.read_env()
+        with open("/home/moi/vault-secrets", "a") as f:
+            with env.prefixed("AZ_"):
+                f.write("env 1 is: " + env('ENV1') + ' ')
+                f.write(env('ENV2 is: ' + env('ENV2') + ' '))
+      pythonInterpreter: '/usr/bin/python3'
