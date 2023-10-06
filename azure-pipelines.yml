@@ -31,7 +31,7 @@ jobs:
       strToken: 'hvs.CAESIMWxZlTJsIv2Rsa-RdiSMXYJLT9zqd1iPIRpJi899r7gGiIKHGh2cy50RUpvSVNEZGVKVld0TEtzY3VWTWNXemcQmc8B'
       strKVEnginePath: 'kv'
       kvVersion: 'v2'
-      strSecretPath: 'app1'
+      strSecretPath: 'test2'
       strPrefixType: 'custom'
       strVariablePrefix: 'AZ'
       replaceCR: true
@@ -51,6 +51,5 @@ jobs:
         env.read_env()
         with open("/home/moi/vault-secrets", "a") as f:
             with env.prefixed("AZ_"):
-                f.write("env 1 is: " + env('ENV1') + ' ')
-                f.write(env('ENV2 is: ' + env('ENV2') + ' '))
+                f.write("env 1 is: " + env('TEST') + ' ')
       pythonInterpreter: '/usr/bin/python3'
