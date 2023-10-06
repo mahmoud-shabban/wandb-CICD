@@ -27,9 +27,8 @@ jobs:
       ignoreCertificateChecks: true
       useProxy: 'none'
       strNamespaces: '/'
-      strAuthType: 'userpass'
-      strUsername: 'admin'
-      strPassword: 'admin'
+      strAuthType: 'clientToken'
+      strToken: 'hvs.CAESIMWxZlTJsIv2Rsa-RdiSMXYJLT9zqd1iPIRpJi899r7gGiIKHGh2cy50RUpvSVNEZGVKVld0TEtzY3VWTWNXemcQmc8B'
       strKVEnginePath: 'kv'
       kvVersion: 'v2'
       strSecretPath: 'kv/app1/'
