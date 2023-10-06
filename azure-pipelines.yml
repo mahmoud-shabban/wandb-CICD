@@ -10,7 +10,7 @@ pool:
   name: my-org-agent-pool
   
 jobs:
-- job: first-job
+- job: first_job
   steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
@@ -19,7 +19,7 @@ jobs:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
-- job: seconde-job
+- job: seconde_job
   steps:
   - task: Bash@3
     inputs:
