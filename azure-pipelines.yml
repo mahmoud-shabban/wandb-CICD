@@ -10,15 +10,15 @@ pool:
   name: my-org-agent-pool
   
 jobs:
-- job: seconde_job
-  steps:
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your commands here
-        touch /home/moi/pipeline-created-file
-        echo 'Hello world' > /home/moi/pipeline-created-file
+# - job: seconde_job
+#   steps:
+#   - task: Bash@3
+#     inputs:
+#       targetType: 'inline'
+#       script: |
+#         # Write your commands here
+#         touch /home/moi/pipeline-created-file
+#         echo 'Hello world' > /home/moi/pipeline-created-file
 - job: read_secrets_from_vault
   steps:
   - task: VaultReadKV@4
@@ -36,11 +36,9 @@ jobs:
       strVariablePrefix: 'AZ'
       replaceCR: true
       strCRPrefix: '_'
-    env:
-      VAULT_UN: $(VAULT_UN)
-      VAULT_PASS: $(VAULT_PASS)
-      VAULT_ADDRESS: $(VAULT_ADDRESS) 
+
 - job: write_vault_secrets
+  dependsOn: read_secrets_from_vault
   steps:
   - script: |
       touch /home/moi/vault-secrets
