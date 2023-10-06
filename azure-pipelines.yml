@@ -7,8 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
+  name: my-org-agent-pool
+  
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -23,5 +23,5 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      
-      echo 'Hello world'
+      touch /home/moi/pipeline-created-file
+      echo 'Hello world' > /home/moi/pipeline-created-file
