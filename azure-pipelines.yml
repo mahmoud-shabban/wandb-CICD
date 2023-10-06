@@ -32,7 +32,7 @@ jobs:
       strPassword: 'admin'
       strKVEnginePath: 'kv'
       kvVersion: 'v2'
-      strSecretPath: 'test'
+      strSecretPath: 'app1'
       strPrefixType: 'custom'
       strVariablePrefix: 'AZ'
       replaceCR: true
