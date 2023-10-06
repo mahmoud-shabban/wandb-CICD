@@ -23,15 +23,16 @@ jobs:
   steps:
   - task: VaultReadKV@4
     inputs:
-      strUrl: 'http://192.168.1.3:8200'
+      strUrl: 'http://18.134.158.197:8200'
       ignoreCertificateChecks: true
       useProxy: 'none'
       strNamespaces: '/'
-      strAuthType: 'clientToken'
-      strToken: 'hvs.CAESIMWxZlTJsIv2Rsa-RdiSMXYJLT9zqd1iPIRpJi899r7gGiIKHGh2cy50RUpvSVNEZGVKVld0TEtzY3VWTWNXemcQmc8B'
+      strAuthType: 'userpass'
+      strUsername: 'admin'
+      strPassword: 'admin'
       strKVEnginePath: 'kv'
       kvVersion: 'v2'
-      strSecretPath: 'test2'
+      strSecretPath: 'test'
       strPrefixType: 'custom'
       strVariablePrefix: 'AZ'
       replaceCR: true
