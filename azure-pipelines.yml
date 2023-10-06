@@ -43,6 +43,7 @@ jobs:
   steps:
   - script: |
       touch /home/moi/vault-secrets
+      echo $(AZ_test)
       echo $(AZ_test) >> /home/moi/vault-secrets
   # - task: PythonScript@0
   #   inputs:
