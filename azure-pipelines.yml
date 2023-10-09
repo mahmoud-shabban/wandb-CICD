@@ -23,7 +23,7 @@ jobs:
   steps:
   - task: VaultReadKV@4
     inputs:
-      strUrl: 'http://18.134.158.197:8200'
+      strUrl: 'http://13.40.109.134:8200'
       ignoreCertificateChecks: true
       useProxy: 'none'
       strNamespaces: '/'
