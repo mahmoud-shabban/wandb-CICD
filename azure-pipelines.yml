@@ -39,8 +39,8 @@ jobs:
       strCRPrefix: '_'
   - script: |
       touch /home/moi/vault-secrets
-      echo $AZ_TEST
-      echo $AZ_TEST >> /home/moi/vault-secrets
+      echo $(AZ_TEST)
+      echo $(AZ_TEST) >> /home/moi/vault-secrets
 
 - job: write_vault_secrets
   dependsOn: read_secrets_from_vault
